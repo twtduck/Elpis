@@ -116,13 +116,6 @@ namespace Elpis
             if (ID != string.Empty)
             {
                 string url = @"http://www.amazon.com/dp/" + ID;
-#if APP_RELEASE
-                if (ReleaseData.AmazonTag != string.Empty)
-                {
-                    url += (@"/?tag=" + ReleaseData.AmazonTag);
-                }
-#endif
-
                 Process.Start(url);
             }
         }
@@ -140,14 +133,6 @@ namespace Elpis
                     if (_currMenuSong.AmazonAlbumUrl != null)
                     {
                         string url = _currMenuSong.AmazonAlbumUrl;
-
-#if APP_RELEASE
-                        if (ReleaseData.AmazonTag != string.Empty)
-                        {
-                            string oldTag = url.Substring(url.IndexOf("tag="));
-                            url = url.Replace(oldTag, ReleaseData.AmazonTag);
-                        }
-#endif
                         Process.Start(url);
                     }
                 }

@@ -812,7 +812,7 @@ namespace Elpis
                 _config.SaveConfig();
 
 #if APP_RELEASE
-                var post = new PostSubmitter(ReleaseData.AnalyticsPostURL);
+                var post = new PostSubmitter(ReleaseData.AnalyticsPostUrl);
 
                 post.Add("guid", _config.Fields.Elpis_InstallID);
                 post.Add("curver", oldVer);
@@ -1027,8 +1027,8 @@ namespace Elpis
             string apiKey = string.Empty;
             string apiSecret = string.Empty;
 #if APP_RELEASE
-                apiKey = ReleaseData.LastFMApiKey;
-                apiSecret = ReleaseData.LastFMApiSecret;
+                apiKey = ReleaseData.LastFmApiKey;
+                apiSecret = ReleaseData.LastFmApiSecret;
 #else
             //Put your own Last.FM API keys here
             apiKey = "dummy_key";
@@ -1075,7 +1075,7 @@ namespace Elpis
                                                {
                                                    _updatePage = new UpdatePage(_update);
                                                    _updatePage.UpdateSelectionEvent += _updatePage_UpdateSelectionEvent;
-                                                   transitionControl.AddPage(_updatePage);
+                                                   //transitionControl.AddPage(_updatePage);
                                                    ShowPage(_updatePage);
                                                });
                     }
@@ -1090,7 +1090,7 @@ namespace Elpis
                         {
                             _updatePage = new UpdatePage(_update);
                             _updatePage.UpdateSelectionEvent += _updatePage_UpdateSelectionEvent;
-                            transitionControl.AddPage(_updatePage);
+                            //transitionControl.AddPage(_updatePage);
                             ShowPage(_updatePage);
                         });
                     }

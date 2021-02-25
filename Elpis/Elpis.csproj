@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Elpis</RootNamespace>
     <AssemblyName>Elpis</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -115,7 +115,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'AppRelease|x86' ">
-    <Compile Include="ReleaseData\ReleaseData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\IconButton.cs" />
@@ -133,7 +132,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReleaseData.cs" />
+    <Compile Include="ReleaseData\ReleaseData.cs" />
     <Compile Include="WebInterface.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
