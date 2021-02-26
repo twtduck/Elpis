@@ -4,6 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+    <Authors>Thomas Woltjer</Authors>
+    <Version>2.0.0</Version>
+    <Platforms>x64</Platforms>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +18,8 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.3" />
     <PackageReference Include="MaterialDesignColors" Version="2.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta1" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +30,15 @@
     <ProjectReference Include="..\Libs\PandoraSharp\PandoraSharp.csproj" />
     <ProjectReference Include="..\Libs\PlayerControlQuery\PlayerControlQuery.csproj" />
     <ProjectReference Include="..\Libs\Util\Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\Libs\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\Libs\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

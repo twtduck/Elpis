@@ -3,11 +3,13 @@ using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Color = System.Windows.Media.Color;
 
 namespace Elpis
 {
@@ -57,8 +59,8 @@ namespace Elpis
                 allHues);
 
             var accentHue = palette.AccentSwatch.AccentHues.ElementAt(palette.AccentHueIndex);
-            ReplaceEntry("SecondaryAccentBrush", new SolidColorBrush(accentHue.Color));
-            ReplaceEntry("SecondaryAccentForegroundBrush", new SolidColorBrush(accentHue.Foreground));
+            ReplaceEntry("SecondaryHueMidBrush", new SolidColorBrush(accentHue.Color));
+            ReplaceEntry("SecondaryHueMidForegroundBrush", new SolidColorBrush(accentHue.Foreground));
         }
 
         /// <summary>
@@ -106,8 +108,8 @@ namespace Elpis
 
             var hue = swatch.AccentHues.ElementAt(palette.AccentHueIndex);
 
-            ReplaceEntry("SecondaryAccentBrush", new SolidColorBrush(hue.Color));
-            ReplaceEntry("SecondaryAccentForegroundBrush", new SolidColorBrush(hue.Foreground));
+            ReplaceEntry("SecondaryHueMidBrush", new SolidColorBrush(hue.Color));
+            ReplaceEntry("SecondaryHueMidForegroundBrush", new SolidColorBrush(hue.Foreground));
         }
 
         public virtual void ReplaceAccentColor(string name)
@@ -147,14 +149,14 @@ namespace Elpis
                 .ToDictionary(a => a.h.Color, a => a.s);
 
             var primaryMidBrush = GetBrush("PrimaryHueMidBrush");
-            var accentBrush = GetBrush("SecondaryAccentBrush");
+            var accentBrush = GetBrush("SecondaryHueMidBrush");
 
             Swatch primarySwatch;
             if (!swatchByPrimaryHueIndex.TryGetValue(primaryMidBrush.Color, out primarySwatch))
                 throw new InvalidOperationException("PrimaryHueMidBrush is not from standard swatches");
             Swatch accentSwatch;
             if (!swatchByAccentHueIndex.TryGetValue(accentBrush.Color, out accentSwatch))
-                throw new InvalidOperationException("SecondaryAccentBrush is not from standard swatches");
+                throw new InvalidOperationException("SecondaryHueMidBrush is not from standard swatches");
 
             var primaryLightBrush = GetBrush("PrimaryHueLightBrush");
             var primaryDarkBrush = GetBrush("PrimaryHueDarkBrush");

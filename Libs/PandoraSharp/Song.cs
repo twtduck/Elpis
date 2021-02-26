@@ -23,9 +23,9 @@ using Util;
 using Newtonsoft.Json.Linq;
 using PandoraSharp.Exceptions;
 using System.Collections.Generic;
-using System.Xml.Serialization;
-using System.Web.Script.Serialization;
 using System.Windows;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace PandoraSharp
 {
@@ -165,7 +165,7 @@ namespace PandoraSharp
         public string AmazonAlbumUrl { get; private set; }
         public string AmazonTrackID { get; private set; }
         [XmlIgnore]
-        [ScriptIgnore]
+        [JsonIgnore]
         public byte[] AlbumImage
         {
             get

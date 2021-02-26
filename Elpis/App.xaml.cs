@@ -15,19 +15,19 @@ namespace Elpis
     public partial class App : Application, ISingleInstanceApp
     {
 
-        [STAThread]
-        public static void Main()
-        {
-            if (SingleInstance<App>.InitializeAsFirstInstance("ElpisInstance"))
-            {
-                var application = new App();
-                application.Init();
-                application.Run();
-
-                // Allow single instance code to perform cleanup operations
-                SingleInstance<App>.Cleanup();
-            }
-        }
+        // [STAThread]
+        // public static void Main()
+        // {
+        //     if (SingleInstance<App>.InitializeAsFirstInstance("ElpisInstance"))
+        //     {
+        //         var application = new App();
+        //         application.Init();
+        //         application.Run();
+        //
+        //         // Allow single instance code to perform cleanup operations
+        //         SingleInstance<App>.Cleanup();
+        //     }
+        // }
 
         public void Init()
         {

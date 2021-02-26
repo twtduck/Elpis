@@ -24,8 +24,8 @@ using System.Diagnostics;
 using System.Net;
 using Kayak;
 using Kayak.Http;
+using Newtonsoft.Json;
 using PandoraSharp;
-using System.Web.Script.Serialization;
 
 namespace Elpis
 {
@@ -35,8 +35,8 @@ namespace Elpis
         public void StartInterface()
         {
 #if DEBUG
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.AutoFlush = true;
+            Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Trace.AutoFlush = true;
 #endif
 
             _scheduler = KayakScheduler.Factory.Create(new SchedulerDelegate());
@@ -185,7 +185,7 @@ namespace Elpis
                 else if (request.Method.ToUpperInvariant() == "GET" && request.Uri.StartsWith("/currentsong"))
                 {
                     Song s = MainWindow.GetCurrentSong();
-                    var body = new JavaScriptSerializer().Serialize(s);
+                    var body = JsonConvert.SerializeObject(s);
 
                     var headers = new HttpResponseHead()
                     {
